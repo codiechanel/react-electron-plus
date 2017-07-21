@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import { HashRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
-class App extends React.Component {
+class Home extends React.Component {
   componentDidMount () {
     console.log('mount')
   }
@@ -22,4 +23,35 @@ class App extends React.Component {
   }
 }
 
-export default App;
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//   </div>
+// )
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+ const BasicExample = () => (
+  <Router>
+    <div>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+     
+      </ul>
+
+      <hr/>
+
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+    
+    </div>
+  </Router>
+)
+
+// export default App;
+export default BasicExample
